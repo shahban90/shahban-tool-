@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Shahban Ali - Developer Hub & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --primary: #00f0ff;
+            --secondary: #ff007f;
+            --accent: #7000ff;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(0, 240, 255, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.05) 0%, transparent 20%);
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 12, 20, 0.8);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 8px var(--primary);
+        }
+
+        .hero {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-color);
+            background: var(--primary);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 4rem 0 2rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Tool Section Controls */
+        .tool-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .tool-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .result-box {
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 6px;
+            border: 1px dashed var(--primary);
+            font-family: monospace;
+            color: var(--primary);
+            margin-top: 1rem;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SHAHBAN.DEV</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#tools">Utilities</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero" id="about">
+        <h1>M SHAHBAN ALI</h1>
+        <p>Web Developer & UI Specialist crafting responsive applications, interactive interfaces, and custom digital solutions.</p>
+        <a href="#tools" class="btn">EXPLORE UTILITIES</a>
+    </section>
+
+    <h2 class="section-title" id="tools">DEVELOPER UTILITIES</h2>
+    <div class="grid">
+        <!-- Utility 1: Quick Code Generator -->
+        <div class="card">
+            <h3>Neon Button Generator</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">Generate CSS for custom glowing elements.</p>
+            <input type="text" id="btnText" class="tool-input" placeholder="Button Text..." value="CYBER CLICK">
+            <button class="btn" onclick="generateCSS()" style="width: 100%;">Generate Code</button>
+            <div class="result-box" id="cssResult">Click generate to get snippet...</div>
+        </div>
+
+        <!-- Utility 2: Aspect Ratio Calculator -->
+        <div class="card">
+            <h3>Image Aspect Ratio Calculator</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">Calculate proportional dimensions for responsive media.</p>
+            <input type="number" id="origW" class="tool-input" placeholder="Original Width (e.g. 1920)">
+            <input type="number" id="origH" class="tool-input" placeholder="Original Height (e.g. 1080)">
+            <input type="number" id="newW" class="tool-input" placeholder="New Target Width">
+            <button class="btn" onclick="calcRatio()" style="width: 100%;">Calculate Height</button>
+            <div class="result-box" id="ratioResult">Height result will display here...</div>
+        </div>
+
+        <!-- Utility 3: Service Estimator -->
+        <div class="card">
+            <h3>Project Price Estimator</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-muted);">Get an estimated project quote.</p>
+            <select id="serviceType" class="tool-input">
+                <option value="15">Interactive Single-Page Website ($15 / ~4,200 PKR)</option>
+                <option value="30">Multi-Step Web Application ($30 / ~8,400 PKR)</option>
+                <option value="25">Custom Bot Scripting ($25 / ~7,000 PKR)</option>
+            </select>
+            <button class="btn" onclick="calcEstimate()" style="width: 100%;">Get Estimate</button>
+            <div class="result-box" id="estimateResult">Total estimation will show here...</div>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="portfolio">PORTFOLIO SHOWCASE</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Interactive Celebration Web Pages</h3>
+            <p>Custom-tailored anniversary and event countdown websites featuring multi-step cards, floating CSS animations, and memory grids.</p>
+        </div>
+        <div class="card">
+            <h3>Automation & Utility Scripts</h3>
+            <p>Terminal-based utilities and custom bot automation scripts designed for seamless task handling and interactive commands.</p>
+        </div>
+        <div class="card">
+            <h3>UI/UX & Image Enhancements</h3>
+            <p>High-definition photo clarity restoration, background editing, and custom graphic design for web and social media.</p>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2026 M Shahban Ali. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function generateCSS() {
+            const txt = document.getElementById('btnText').value || 'BUTTON';
+            const code = `.neon-btn { padding: 12px 24px; color: #00f0ff; border: 1px solid #00f0ff; background: transparent; box-shadow: 0 0 10px #00f0ff; cursor: pointer; }`;
+            document.getElementById('cssResult').innerText = code;
+        }
+
+        function calcRatio() {
+            const w1 = parseFloat(document.getElementById('origW').value);
+            const h1 = parseFloat(document.getElementById('origH').value);
+            const w2 = parseFloat(document.getElementById('newW').value);
+
+            if (w1 && h1 && w2) {
+                const h2 = Math.round((h1 / w1) * w2);
+                document.getElementById('ratioResult').innerText = `Calculated Height: ${h2}px`;
+            } else {
+                document.getElementById('ratioResult').innerText = 'Please enter all three values.';
+            }
+        }
+
+        function calcEstimate() {
+            const val = document.getElementById('serviceType').value;
+            const pkr = val * 280; // approximate conversion
+            document.getElementById('estimateResult').innerText = `Estimated Base Cost: $${val} USD (~${pkr.toLocaleString()} PKR)`;
+        }
+    </script>
+</body>
+</html>
